@@ -34,19 +34,19 @@ void initBoard(byte puzzleNumber) {
   
     // Load up the left hand value ..
 
-    puzzle.board[y][x] = 0;
+    board[y][x] = 0;
     if (leftValue(byteRead) > 0) {
-      puzzle.board[y][x] = 0xF0 | leftValue(byteRead);
+      board[y][x] = 0xF0 | leftValue(byteRead);
     }
     x++;
 
   
     // Are we still in the confines of the board?
 
-    if (x <= puzzle.maximum.x) {         
-      puzzle.board[y][x] = 0;
+    if (x <= PUZZLE_X) {         
+      board[y][x] = 0;
       if (rightValue(byteRead) > 0) {
-        puzzle.board[y][x] = 0xF0 | rightValue(byteRead);
+        board[y][x] = 0xF0 | rightValue(byteRead);
       }
     }
 
